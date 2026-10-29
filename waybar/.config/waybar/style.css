@@ -1,0 +1,107 @@
+/* Minimal Tokyo Night bar — palette borrowed from Omarchy's default theme */
+@define-color bg      rgba(26, 27, 38, 0.94);
+@define-color fg      #c0caf5;
+@define-color dim     #565f89;
+@define-color accent  #7aa2f7;
+@define-color green   #9ece6a;
+@define-color yellow  #e0af68;
+@define-color red     #f7768e;
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans Mono", monospace;
+    font-size: 13px;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background: @bg;
+    color: @fg;
+    border-bottom: 1px solid rgba(122, 162, 247, 0.22);
+}
+
+.modules-left {
+    padding-left: 12px;
+}
+
+.modules-right {
+    padding-right: 10px;
+}
+
+#custom-launcher {
+    color: @accent;
+    font-size: 16px;
+    padding-right: 12px;
+}
+
+#workspaces button {
+    padding: 0 3px;
+    background: transparent;
+    color: @dim;
+}
+
+#workspaces button.active {
+    color: @accent;
+    font-weight: 600;
+    box-shadow: inset 0 -2px @accent;
+}
+
+#workspaces button:hover {
+    color: @fg;
+    text-shadow: none;
+}
+
+#workspaces button.active:hover {
+    box-shadow: inset 0 -2px @accent;
+}
+
+#workspaces button.urgent {
+    color: @red;
+}
+
+#clock {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+#tray {
+    padding: 0 6px;
+}
+
+#network,
+#bluetooth,
+#pulseaudio,
+#battery,
+#custom-power {
+    padding: 0 10px;
+    color: @fg;
+}
+
+#network.disconnected,
+#bluetooth.disabled,
+#pulseaudio.muted {
+    color: @dim;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @green;
+}
+
+#battery.warning:not(.charging) {
+    color: @yellow;
+}
+
+#battery.critical:not(.charging) {
+    color: @red;
+}
+
+#custom-power {
+    color: @dim;
+    padding-right: 6px;
+}
+
+#custom-power:hover {
+    color: @red;
+}
